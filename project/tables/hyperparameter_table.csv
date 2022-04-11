@@ -1,0 +1,6 @@
+model,Val_frac,presets,score
+initial,0.1,Best quality,1.8
+add_features_1,0.1,Best quality,0.68
+add_features_3,0.1,Best quality,0.67
+add_features_3zt,0.1,Best quality,0.7
+hpo,0.1,Best quality,0.45

@@ -55,19 +55,19 @@ WeightedEnsemble_L3 was top ranked model with the best Kaggle test score (RMSLE 
 
 The time series plot of the count data revealed interannual variability in the rental demand, with more numbers of bikes rented in the year 2012 than in 2011. As expected, bikers preferred biking in Spring and Summer seasons in both years. There are two daily peak demands – one in the morning around 7-8 am and the other in the afternoon around 5-6 pm during working days, most likely representing the demand from the office-goers (Fig. 1 and 2). Over holidays, there appears to be a demand for bike rentals around 11 am to 2 pm peaking at 12 pm - 1 pm, most likely showing the leisurely biking activity (Fig. 2, uppen panel). Thus, the very basic EDA highlights the strong dependence between the 'hour' of the day and the bike-sharing demand counts.
 
-![Bike_sharing_data_ts_plot](figures/Bike_sharing_data_ts_plot.png)
+![Bike_sharing_data_ts_plot](./project/figures/Bike_sharing_data_ts_plot.png)
 Figure 1. Bike-sharing demand time series spanning 2011-2012 in Washington, DC (upper panel); same data over the week of 10/01/2012 is provided for better visualization of hourly demands (lower panel)
 
 
-![hourly_count_distplot](figures/hourly_count_distplot.png)
+![hourly_count_distplot](./project/figures/hourly_count_distplot.png)
 Figure 2. Hourly bike rental demand during holidays and working and non-working days.
 
-![temp_vs_count_by_season](figures/temp_vs_count_by_season.png)
+![temp_vs_count_by_season](./project/figures/temp_vs_count_by_season.png)
 Figure 3. Relationship between air temperature and count. Color of the marker shows the hour of the day.
 
 The hourly dependence is also visible in the air temperature-count relationship plot (Fig. 3). Count data from early morning hours (cooler colors) are stratified at the bottom showing the lowest demand and peak office morning hours (cyan color) and afternoon office return hours (orange color) showing the most demand irrespective of the season.
 
-![correlation_heatmap_all_features](figures/correlation_heatmap_all_features.png)
+![correlation_heatmap_all_features](./project/figures/correlation_heatmap_all_features.png)
 Figure 4. Correlation heat map (replace with map after adding features)
 
 Based on insights from EDA, we added several new features. A complete list of added features is provided below.
@@ -128,7 +128,7 @@ hpo|            3600     |0.3     |Best quality|0.45 |
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
-![model_train_test_score.png](figures/model_train_test_score.png)
+![model_train_test_score.png](./project/figures/model_train_test_score.png)
 Figure 5. Model performance scores from five trained models. RMSE and RMSLE represent the model error from training and testing stage. Refer to note under Table 1 for model explanation.
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.

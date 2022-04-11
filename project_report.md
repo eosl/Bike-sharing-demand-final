@@ -43,15 +43,12 @@ However, we note that AutoGluon uses Root Mean Square Error (RMSE) for model ran
 
 
 ## Initial Training
-### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
 
 AutoGluon model was trained using all available features and using the TabularPredictor module. WeightedEnsemble_L3 model was ranked as the top model with an RMSE of 52.80. As we are predicting number of hourly bike rentals, RMSE would be better served by converting it to an integer by rounding the real number (RMSE = 53). The submission file was prepared after checking for negative predictions and replacing them with zeros if there were any. However, there were no negative predictions from the model. Then the submission file was prepared only by keeping the datetime and predicted count column. The first submission resulted in an error as the submission file was not formatted adhering to the Kaggle rules and contained more columns than the competition expected.
 
-### What was the top ranked model that performed?
 WeightedEnsemble_L3 was top ranked model with the best Kaggle test score (RMSLE = 1.8).
 
 ## Exploratory data analysis and feature creation
-### What did the exploratory analysis find and how did you add additional features?
 
 The time series plot of the count data revealed interannual variability in the rental demand, with more numbers of bikes rented in the year 2012 than in 2011. As expected, bikers preferred biking in Spring and Summer seasons in both years. There are two daily peak demands – one in the morning around 7-8 am and the other in the afternoon around 5-6 pm during working days, most likely representing the demand from the office-goers (Fig. 1 and 2). Over holidays, there appears to be a demand for bike rentals around 11 am to 2 pm peaking at 12 pm - 1 pm, most likely showing the leisurely biking activity (Fig. 2, uppen panel). Thus, the very basic EDA highlights the strong dependence between the 'hour' of the day and the bike-sharing demand counts.
 
@@ -91,7 +88,7 @@ Correlation analysis among all features and the target produced a few key insigh
 5.	The hour of the day has stronger positive correlation with count ($r$ = 0.4)
 6.	The two added features - temp to windspeed ratio ($r$ = 0.15) and humidity to windspeed ratio ($r$ = -0.16) showed positive and negative correlation with count, respectively.
 
-### How much better did your model perform after adding additional features and why do you think that is?
+### Improvement in model performance with additional features
 
 Another AutoGluon model was trained using the previous features and the newly added 'hour' as the only feature. Performance of the newly trained model significantly improved (training RMSE = 29.99, test RMSLE = 0.68). The improved performance could be due to the addition of the hour variable as bike rental count strongly depends on the hour of the day. Similarly, the addition of 'temp to windspeed ratio' and 'humidity to windspeed ratio' increased the train error (RMSE = 30.68), but decreased the test RMSLE to 0.67. Further, we added more features such as 
  + 'month',
@@ -107,7 +104,6 @@ through feature engineering. However, the RMSLE score in the train and test data
 We also tested if standardization of data by scaling the numeric features using Z-transform would imprive preictive power of the model. However, the data transformation did not improve the model performance; rather somewhat deteriorated the model performance (Table 1, Fig. 5).
 
 ## Hyper parameter tuning
-### How much better did your model preform after trying different hyper parameters?
 
 Hyperparameter tuning was carried out by specifying hyperparameters
 and hyperparameter_tune_kwargs arguments. For neural network models, we set the number of epochs to 50. We chose the learning rate search space from 1e-4 to 1e-2 on a log scale. Three activation functions - relu', 'softrelu,' and 'tanh' were set as three tunable options.
@@ -116,12 +112,7 @@ For lightGBM gradient boosted trees, we set the number of boosting rounds to 100
  
 The top model with tuned hyperparameters produced the best model performance highlighting the importance of model tuning. The RMSE in the training dataset was 33.96, which is higher than the best model before tuning. However, the RMSLE in the test dataset came down to 0.45, making it the model with the best performance in the test dataset. This could be because the tuned model has better generalization ability. The hpo model tuning used a higher val_frac (0.3) for tuning the hyperparameters. That may be how the model obtained the better generalization ability and why the model performed better in the test dataset. 
 
-
-### If you were given more time with this dataset, where do you think you would spend more time?
-
 Additional feature engineering with several rounds of trial and error could probably help improve the model. Additionally, training and testing of the top model from AutoGluon's ranked set of models and hyperparameter tuning specific to WeightedEnsemble_L3 model could improve the model performance. Similarly, splitting the training dataset into train and validation data and training the model on new train data, and testing on validation data could help produce a more robust and generalizable model. That way, only top models would be submitted to the competition, reducing the number of submission entries in the Kaggle competition.
-
-### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
 
 Table 1. Model parameters and their final test score as obtained through Kaggle submissions.
 
@@ -135,15 +126,8 @@ hpo|            3600     |0.3     |Best quality|0.45 |
 
 Note: initial is the model before adding new features. Add_features_1 includes 'hour' as the only added feature; add_features_3 includes 'hour' and 'temp to windspeed ratio' and 'humidity to windspeed ratio' as added features; add_features_3zt uses the same features as add_features_3 with their Z-transform. Finally, hpo is the hyperparameter tuned model.
 
-
-### Create a line plot showing the top model score for the three (or more) training runs during the project.
-
 ![model_train_test_score.png](./project/figures/model_train_test_score.png)
 Figure 5. Model performance scores from five trained models. RMSE and RMSLE represent the model error from training and testing stage. Refer to note under Table 1 for model explanation.
-
-
-
-### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
 ## Summary
 This exercise used the bike-sharing demand dataset from the Kaggle competition and attempted to predict hourly bike rental demand from the hour of the day and several weather variables. This analysis highlighted that 'hour' is an important variable with strong predictive power to model bike rental demand. Similarly, temperature and humidity are positively and negatively correlated with the bike rental count. Feature engineering is the most crucial step in ML model training workflow, and therefore it should require the utmost attention. Further, the tuning of hyperparameters of the model was essential, which considerably boosted the performance of the final chosen model. Finally, this ML modeling exercise demonstrated the power of AutoML pipelines – AutoGluon and underlined how we could train a model with a few lines of code and minimal input from the user and deliver a model with reasonable model performance.

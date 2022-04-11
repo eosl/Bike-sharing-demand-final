@@ -133,6 +133,8 @@ add_features_3  |600     |0.1     |Best quality|0.67 |
 add_features_3 (zt)|600     |0.1     |Best quality|0.70 |
 hpo|            3600     |0.3     |Best quality|0.45 |
 
+Note: initial is the model before adding new features. Add_features_1 includes 'hour' as the only added feature; add_features_3 includes 'hour' and 'temp to windspeed ratio' and 'humidity to windspeed ratio' as added features; add_features_3zt uses the same features as add_features_3 with their Z-transform. Finally, hpo is the hyperparameter tuned model.
+
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 

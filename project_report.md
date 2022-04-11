@@ -103,7 +103,7 @@ through feature engineering. However, the RMSLE score in the train and test data
 
 We also tested if standardization of data by scaling the numeric features using Z-transform would imprive preictive power of the model. However, the data transformation did not improve the model performance; rather somewhat deteriorated the model performance (Table 1, Fig. 5).
 
-## Hyper parameter tuning
+## Hyperparameter tuning
 
 Hyperparameter tuning was carried out by specifying hyperparameters
 and hyperparameter_tune_kwargs arguments. For neural network models, we set the number of epochs to 50. We chose the learning rate search space from 1e-4 to 1e-2 on a log scale. Three activation functions - relu', 'softrelu,' and 'tanh' were set as three tunable options.

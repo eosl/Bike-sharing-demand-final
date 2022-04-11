@@ -29,7 +29,7 @@ Response variable or target:
 ## Model Evaluation
 We will use Root Mean Square Log Error (RMSLE) for model evaluation as the Kaggle competition requires that.
 
-RMSLE = $\sqrt{\frac{1}{n}\sum_{i=1}^n (log(p_i + 1) - log(a_i + 1))^2}$
+![\Large RMSLE=\sqrt{\frac{1}{n}\sum_{i=1}^n (log(p_i + 1) - log(a_i + 1))^2}](https://latex.codecogs.com/svg.image?\Large&space;RMSLE=\sqrt{\frac{1}{n}\sum_{i=1}^n&space;(log(p_i&space;&plus;&space;1)&space;-&space;log(a_i&space;&plus;&space;1))^2}) 
 
 where:
 + $n$ is the number of hours in the test set 
@@ -39,7 +39,7 @@ where:
 
 However, we note that AutoGluon uses Root Mean Square Error (RMSE) for model ranking and selecting the best model.
 
-RMSE = $\sqrt{\frac{1}{n}\sum_{i=1}^n (p_i-a_i)^2}$
+![\Large RMSE = $\sqrt{\frac{1}{n}\sum_{i=1}^n (p_i-a_i)^2}](https://latex.codecogs.com/svg.image?\Large&space;RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^n&space;(p_i-a_i)^2})
 
 
 ## Initial Training

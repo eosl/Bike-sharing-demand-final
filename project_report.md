@@ -1,5 +1,5 @@
 # Predict Bike Sharing Demand with AutoGluon
-#### SACHI MISHRA
+#### Sachi Mishra
 
 
 Accurate prediction of hourly bike rental counts has significant business value, leading to efficient logistical planning and better management decision-making for business operation. Here we use such a dataset from a Kaggle competition launched in May 2014. The dataset contains

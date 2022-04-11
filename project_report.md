@@ -59,16 +59,24 @@ The time series plot of the count data revealed interannual variability in the r
 Figure 1. Bike-sharing demand time series spanning 2011-2012 in Washington, DC (upper panel); same data over the week of 10/01/2012 is provided for better visualization of hourly demands (lower panel)
 
 
+
+
 ![hourly_count_distplot](./project/figures/hourly_count_distplot.png)
 Figure 2. Hourly bike rental demand during holidays and working and non-working days.
 
+
+
 ![temp_vs_count_by_season](./project/figures/temp_vs_count_by_season.png)
 Figure 3. Relationship between air temperature and count. Color of the marker shows the hour of the day.
+
+
 
 The hourly dependence is also visible in the air temperature-count relationship plot (Fig. 3). Count data from early morning hours (cooler colors) are stratified at the bottom showing the lowest demand and peak office morning hours (cyan color) and afternoon office return hours (orange color) showing the most demand irrespective of the season.
 
 ![correlation_heatmap_all_features](./project/figures/correlation_heatmap_all_features.png)
 Figure 4. Correlation heat map (replace with map after adding features)
+
+
 
 Based on insights from EDA, we added several new features. A complete list of added features is provided below.
 - Hour
@@ -130,6 +138,8 @@ hpo|            3600     |0.3     |Best quality|0.45 |
 
 ![model_train_test_score.png](./project/figures/model_train_test_score.png)
 Figure 5. Model performance scores from five trained models. RMSE and RMSLE represent the model error from training and testing stage. Refer to note under Table 1 for model explanation.
+
+
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
